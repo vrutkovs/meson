@@ -3,9 +3,12 @@ language: python
 python:
   - "3.3"
   - "3.4"
+before_install:
+  - echo "deb http://archive.ubuntu.com/ubuntu/ utopic main restricted universe multiverse" | sudo tee -a /etc/apt/sources.list
+  - sudo apt-get update -qq
+  - sudo apt-get install ninja-build -y
 install:
   - pip install pep8 pyflakes --use-mirrors
-  - sudo apt-get install ninja-build -y
 script:
   - "./install_meson.py --prefix /tmp"
   - "env MESON_PRINT_TEST_OUTPUT=1 ./run_tests.py"
