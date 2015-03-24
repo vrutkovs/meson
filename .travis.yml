@@ -7,7 +7,7 @@ before_install:
   - sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test
   - echo "deb http://http.us.debian.org/debian unstable main" | sudo tee -a /etc/apt/sources.list
   - sudo apt-get -qq update
-  - sudo apt-get -qq install g++-4.9
+  - sudo apt-get -qq install gcc-4.9
   - sudo apt-get install ninja-build -y --force-yes
   - pip install pep8 pyflakes --use-mirrors
 install:
