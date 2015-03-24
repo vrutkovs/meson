@@ -6,7 +6,7 @@ python:
 before_install:
   - sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test
   - sudo apt-get -qq update
-  - sudo apt-get -qq install gcc-4.9 --force-yes -y
+  - sudo apt-get -qq install gcc-4.9 gcc-4.9-locales --force-yes -y
   - echo "deb http://http.us.debian.org/debian unstable main" | sudo tee -a /etc/apt/sources.list
   - sudo apt-get -qq update
   - sudo apt-get install ninja-build -y --force-yes
