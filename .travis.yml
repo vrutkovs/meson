@@ -4,6 +4,7 @@ python:
   - "3.4"
   - "pypi"
 install:
-  - pip install pep8 pyflakes --use-mirrors
+  - pip install pep8 pyflakes ninja --use-mirrors
 script:
+  - "./install_meson.py --prefix /tmp"
   - "pyflakes *"
