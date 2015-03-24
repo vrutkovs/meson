@@ -8,7 +8,7 @@ before_install:
   - sudo apt-get -qq update
   - sudo apt-get -qq install gcc-4.9 gcc-4.9-locales --force-yes -y
   - curl -sL https://github.com/martine/ninja/releases/download/v1.5.3/ninja-linux.zip > ninja.zip
-  - unzip ninja.zip -d /usr/local/bin
+  - sudo unzip ninja.zip -d /usr/local/bin
   - pip install pep8 pyflakes --use-mirrors
 install:
   - ./install_meson.py --prefix /tmp
