@@ -7,4 +7,4 @@ install:
   - pip install pep8 pyflakes ninja --use-mirrors
 script:
   - "./install_meson.py --prefix /tmp"
-  - "pyflakes *"
+  - "pyflakes modules tools *.py"
