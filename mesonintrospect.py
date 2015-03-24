@@ -22,7 +22,7 @@ Currently only works for the Ninja backend. Others use generated
 project files and don't need this info."""
 
 import json, pickle
-import coredata, build, optinterpreter
+import build, optinterpreter
 import argparse
 import sys, os
 

@@ -15,9 +15,9 @@
 # limitations under the License.
 
 import sys, os, pickle, time, shutil
-import build, coredata, environment, optinterpreter
+import build, environment, optinterpreter
 from PyQt5 import uic
-from PyQt5.QtWidgets import QApplication, QMainWindow, QHeaderView
+from PyQt5.QtWidgets import QApplication, QHeaderView
 from PyQt5.QtWidgets import QComboBox, QCheckBox
 from PyQt5.QtCore import QAbstractItemModel, QModelIndex, QVariant, QTimer
 import PyQt5.QtCore

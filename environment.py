@@ -14,8 +14,7 @@
 
 import re
 import coredata
-from glob import glob
-from compilers import *
+from compilers import *  # silence pyflakes
 
 build_filename = 'meson.build'
 

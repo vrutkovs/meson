@@ -1,9 +1,11 @@
+sudo: required
 language: python
 python:
   - "3.3"
   - "3.4"
 install:
-  - pip install pep8 pyflakes ninja --use-mirrors
+  - pip install pep8 pyflakes --use-mirrors
+  - sudo apt-get install ninja-build -y
 script:
   - "./install_meson.py --prefix /tmp"
   - "env MESON_PRINT_TEST_OUTPUT=1 ./run_tests.py"
