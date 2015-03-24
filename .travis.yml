@@ -19,5 +19,5 @@ env:
     - STAGE='tests'
     - STAGE='pyflakes'
 script:
-  - "[ $STAGE = tests ]    || env MESON_PRINT_TEST_OUTPUT=1 ./run_tests.py"
-  - "[ $STAGE = pyflakes ] || pyflakes modules tools *.py"
+  - "[ $STAGE = 'tests' ]    || env MESON_PRINT_TEST_OUTPUT=1 ./run_tests.py"
+  - "[ $STAGE = 'pyflakes' ] || pyflakes modules tools *.py"
