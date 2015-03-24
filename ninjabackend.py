@@ -459,7 +459,7 @@ class NinjaBackend(backends.Backend):
                 d.man.append(i)
 
     def generate_data_install(self, d):
-        dataroot = self.environment.get_datadir()
+        #dataroot = self.environment.get_datadir()
         data = self.build.get_data()
         for de in data:
             subdir = de.get_install_dir()
@@ -631,7 +631,6 @@ class NinjaBackend(backends.Backend):
         elem.write(outfile)
 
     def generate_single_java_compile(self, subdir, src, target, compiler, outfile):
-        buildtype = self.environment.coredata.buildtype
         args = []
         args += compiler.get_buildtype_args(self.environment.coredata.buildtype)
         args += compiler.get_output_args(self.get_target_private_dir(target))

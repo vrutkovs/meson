@@ -16,6 +16,7 @@ import os, sys
 import backends, build
 import xml.etree.ElementTree as ET
 import xml.dom.minidom
+from coredata import MesonException
 
 class Vs2010Backend(backends.Backend):
     def __init__(self, build, interp):
@@ -237,14 +238,14 @@ class Vs2010Backend(backends.Backend):
                 inc_dirs.append(os.path.join(proj_to_src_root, curdir)) # src dir
         inc_dirs.append('%(AdditionalIncludeDirectories)')
         ET.SubElement(clconf, 'AdditionalIncludeDirectories').text = ';'.join(inc_dirs)
-        preproc = ET.SubElement(clconf, 'PreprocessorDefinitions')
+        ET.SubElement(clconf, 'PreprocessorDefinitions')
         rebuild = ET.SubElement(clconf, 'MinimalRebuild')
         rebuild.text = 'true'
         rtlib = ET.SubElement(clconf, 'RuntimeLibrary')
         rtlib.text = 'MultiThreadedDebugDLL'
         funclink = ET.SubElement(clconf, 'FunctionLevelLinking')
         funclink.text = 'true'
-        pch = ET.SubElement(clconf, 'PrecompiledHeader')
+        ET.SubElement(clconf, 'PrecompiledHeader')
         warnings = ET.SubElement(clconf, 'WarningLevel')
         warnings.text = 'Level3'
         debinfo = ET.SubElement(clconf, 'DebugInformationFormat')

@@ -13,7 +13,6 @@
 # limitations under the License.
 
 import re
-import sys
 from coredata import MesonException
 
 class ParseException(MesonException):
