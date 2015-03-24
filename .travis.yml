@@ -2,7 +2,6 @@ language: python
 python:
   - "3.3"
   - "3.4"
-  - "pypi"
 install:
   - pip install pep8 pyflakes ninja --use-mirrors
 script:
