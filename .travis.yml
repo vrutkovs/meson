@@ -7,4 +7,5 @@ install:
   - pip install pep8 pyflakes ninja --use-mirrors
 script:
   - "./install_meson.py --prefix /tmp"
+  - "env MESON_PRINT_TEST_OUTPUT=1 ./run_tests.py"
   - "pyflakes modules tools *.py"
