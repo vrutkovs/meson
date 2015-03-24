@@ -14,7 +14,19 @@
 
 import re
 import coredata
-from compilers import *  # pyflakes.ignore
+from compilers import ArLinker, VisualStudioCCompiler, VisualStudioLinker, \
+    RustCompiler, ValaCompiler, MonoCompiler, JavaCompiler, GnuObjCPPCompiler, \
+    ClangObjCPPCompiler, GnuObjCCompiler, ClangObjCCompiler, \
+    VisualStudioCPPCompiler, ClangCPPCompiler, GnuCPPCompiler, NAGFortranCompiler, \
+    Open64FortranCompiler, PGIFortranCompiler, PathScaleFortranCompiler, \
+    IntelFortranCompiler, SunFortranCompiler, G95FortranCompiler, \
+    GnuFortranCompiler, ClangCCompiler, GnuCCompiler
+from compilers import EnvironmentException, GCC_STANDARD, GCC_OSX, is_header,\
+    is_source, is_object
+import mesonlib
+import os
+from os import FileNotFoundError
+import subprocess
 
 build_filename = 'meson.build'
 
