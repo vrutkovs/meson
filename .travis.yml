@@ -7,6 +7,7 @@ before_install:
   - sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test
   - sudo apt-get -qq update
   - sudo apt-get -qq install gcc-4.9 gcc-4.9-locales --force-yes -y
+  - rm -rf /usr/bin/gcc && ln -s /usr/bin/gcc-4.9 /usr/bin/gcc
   - curl -sL https://github.com/martine/ninja/releases/download/v1.5.3/ninja-linux.zip > ninja.zip
   - sudo unzip ninja.zip -d /usr/local/bin
   - pip install pep8 pyflakes --use-mirrors
