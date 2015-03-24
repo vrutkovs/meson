@@ -9,7 +9,12 @@ before_install:
   - sudo apt-get install ninja-build -y
 install:
   - pip install pep8 pyflakes --use-mirrors
+env:
+  matrix:
+    - STAGE='install'
+    - STAGE='tests'
+    - STAGE='pyflakes'
 script:
-  - "./install_meson.py --prefix /tmp"
-  - "env MESON_PRINT_TEST_OUTPUT=1 ./run_tests.py"
-  - "pyflakes modules tools *.py"
+  - "[ $STAGE = install ]  || ./install_meson.py --prefix /tmp"
+  - "[ $STAGE = tests ]    || env MESON_PRINT_TEST_OUTPUT=1 ./run_tests.py"
+  - "[ $STAGE = pyflakes ] || pyflakes modules tools *.py"
