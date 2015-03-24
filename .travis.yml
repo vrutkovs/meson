@@ -7,14 +7,13 @@ before_install:
   - echo "deb http://http.us.debian.org/debian testing main" | sudo tee -a /etc/apt/sources.list
   - sudo apt-get update -qq
   - sudo apt-get install ninja-build -y
-install:
   - pip install pep8 pyflakes --use-mirrors
+install:
+  - ./install_meson.py --prefix /tmp
 env:
   matrix:
-    - STAGE='install'
     - STAGE='tests'
     - STAGE='pyflakes'
 script:
-  - "[ $STAGE = install ]  || ./install_meson.py --prefix /tmp"
   - "[ $STAGE = tests ]    || env MESON_PRINT_TEST_OUTPUT=1 ./run_tests.py"
   - "[ $STAGE = pyflakes ] || pyflakes modules tools *.py"
