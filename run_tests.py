@@ -119,6 +119,8 @@ def run_and_log(logfile, testdir, should_succeed=True):
     if msg != '':
         print('Fail:', msg)
         failing_tests += 1
+        if stop_on_failure:
+            raise StopException()
     else:
         print('Success')
         passing_tests += 1
@@ -332,7 +334,12 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description="Run the test suite of Meson.")
     parser.add_argument('--backend', default=None, dest='backend',
                       choices = backendlist)
+    parser.add_argument('--stop-on-failure', default=False, dest='stop',
+                      action = "store_true")
+
     options = parser.parse_args()
+    global stop_on_failure
+    stop_on_failure = options.stop
     setup_commands(options.backend)
 
     script_dir = os.path.split(__file__)[0]
@@ -347,5 +354,5 @@ if __name__ == '__main__':
     os.unlink(pbfile)
     print('\nTotal passed tests:', passing_tests)
     print('Total failed tests:', failing_tests)
-    sys.exit(failing_tests)
+    sys.exit(int(failing_tests))
 

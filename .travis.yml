@@ -25,7 +25,7 @@ script: >
        sudo unzip ninja.zip -d /usr/local/bin
 
        ./install_meson.py --prefix /tmp
-       env MESON_PRINT_TEST_OUTPUT=1 coverage run --source=. ./run_tests.py
+       env MESON_PRINT_TEST_OUTPUT=1 coverage run --source=. ./run_tests.py --stop-on-failure
     fi;
     if [ $STAGE = 'pyflakes' ]; then
        pyflakes modules tools *.py
