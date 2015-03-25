@@ -25,7 +25,7 @@ env:
     - STAGE='tests'
     - STAGE='pyflakes'
 script:
-  - if [ $STAGE = 'tests' ]; then env MESON_PRINT_TEST_OUTPUT=1 coverage run ./run_tests.py; fi
+  - if [ $STAGE = 'tests' ]; then env MESON_PRINT_TEST_OUTPUT=1 coverage run --source=. ./run_tests.py; fi
   - if [ $STAGE = 'pyflakes' ]; then pyflakes modules tools *.py; fi
 after_success:
   - coveralls
